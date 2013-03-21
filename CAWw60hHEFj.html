@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="version" content="295"/>
+<style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/669$CAWw60hHEFj</title>
+</head>
+<body><h1>＠規則訂製時的問題點：</h1><p></p><p></p><p><b>【問題點 / 待討論】</b></p><p></p><p><b>註：主要就是(1)Tag階層&nbsp;&nbsp; (2)條件不易Tag化 這兩點啦~</b></p><p></p><ul class="comment"><li>Blue:首先，想先說明Tag部分，Tag是幫助我們可以更快的符合使用者申請的東西快速呈現在<b>他送出表單查詢時，會針對他選了哪個tag去做搜尋把條文列到他眼前，至於有一些條文的資格非常細，我個人傾向是不需tag這些太細微的，讓使用者自行去看即可（就算這時候使用者不符合資格也沒關係，我們會多加一個僅供參考的區塊）原則上每一個條文都會至少有幾個tag，至少她看到的條文是我們有做搜尋tag條件後的。</b></li></ul>
+
+<ul class="comment"><li>Blue:關於tag階層，我大概有個樹狀圖想法，晚點補上！</li></ul>
+
+<ul><li><b>年齡的Tag，我應該要是把所有有的年齡限制條件列出 or 抓出年齡自訂區間？</b><ul><li><b>ex. 2歲以上可領扶助津貼 ； 18~20歲可領就學津貼&nbsp;</b></li>
+<li><b>那我應該設定的tag value該是</b><ul><li><b><u>&gt;=2</u>&nbsp;&nbsp;&nbsp; <u>&gt;18, &lt;20</u></b></li>
+<li><b>還是要自動填補所有年齡變成<u>&lt;2</u>&nbsp;&nbsp;&nbsp;&nbsp; <u>&gt;=2,&lt;=18</u>&nbsp; <u>&gt;18, &lt;20</u>&nbsp;&nbsp; <u>&gt;=20</u></b></li></ul>
+</ul>
+</ul>
+
+<ul class="comment"><li>Blue:年齡部分，就我所知mySQL在數字區間的比較上很快。比如說<b>2歲以上可領扶助津貼,這個法規的tag就寫：</b></li>
+<li><b>tag1:年齡</b></li>
+<li><b>value: &gt;=2&nbsp;</b></li>
+<li>這樣即可，不需要去把全部法規&rsquo;年齡&rsquo;部分<b>做個整理</b></li>
+<li>（這是我的想法，有錯請指認一下～）</li></ul>
+<p>&nbsp;</p><p></p><ul><li><b>我目前碰到的主要問題是，各種體系的福利條件差異很大：</b><ul><li><b>ex1. 社會保險體系</b><ul><li><b>如勞保傷病給付條件是 1.具有勞保身分&nbsp; 2.”有受傷住院4天以上之情事”</b></li></ul>
+</li>
+<li><b>ex2. 社會福利體系</b><ul><li><b>如馬關津貼條件是 “生活顯著有困難，立即性需要經濟補助”</b></li></ul>
+</li>
+<li><b>ex3. 民間補助體系</b><ul><li><b>例如<a href='http://www.tnchb.gov.tw/File/News/2009610163015338.doc'/>髓緣之友協會</a>補助條件是“有骨髓移植、周邊血液幹細胞移植者”</b></li></ul>
+</ul>
+</ul>
+
+<p></p><ul><li><b>“引號中” 對我來說就是難Tag化的條件，ex2過於”敘述性”、ex3”過細”，<u>但尷尬的是這些難Tag化的東西就是這個福利的主要申請條件</u>，我覺得我們的平台要有價值，就是要在這類的福利上能做到關聯，如果只是下簡單的&nbsp; 中低收入戶/身心障礙/年齡等 ，老實說一般人多google、仔細看社會局網站就可以了</b></li></ul>
+
+<p></p><ul><li><b>目前的想法是，像ex3<a href='http://www.tnchb.gov.tw/File/News/2009610163015338.doc'/>髓緣之友協會</a>補助條件就變成拉高到”骨髓移植者”的層次，在”重大傷病”的Tag下設定&nbsp; 子Tag”骨髓或器官移植患者”，大概得用這種方式來處理，那就變成case by base新增Tag了</b></li></ul>
+
+<p></p><ul><li><b>至於ex2這種敘述型的條件......就直接下一個敘述型的Tag嗎？</b></li></ul>
+<p><b>”有立即性經濟困難 - 是/否”......？</b></p><p></p><p></p><p></p><ul><li><b>這個平台要有價值，必須要是”user輸入條件後”&nbsp; 可以<u>精準</u>的利用Tag找到”我沒有想過我原來可以申請的福利”，但這其中會有一個conflict點</b><ul><li><b>對我們來說：Tag要夠精準，就需要處理↓↓這種東西</b></li></ul>
+</ul>
+<p><b>家庭總收入按全家人口平均分配，每人每月未超過當年度最低生活費2.5倍（29,725元）且未達台灣地區平均每人每月消費支出1.5倍（27,698元）；全家存款（含投資）一口未超過120萬元 ，每增加一口增加18萬元；全家土地公告現值及房屋總值未超過650萬元，育有未滿15歲子女並具有下列情形之一：&nbsp;</b></p><p></p><ul><li><b>但是對user來說：95%以上的user看到”家庭總收入按全家人口平均分配金額”、&quot;每口全家存款&quot;、”全家土地公告現值及房屋總值”，應該都是看不懂的(很可能連土地公告現值是什麼都不知道了)</b></li></ul>
+
+<p></p><ul><li><b>初步解決方法的想法</b><ul><li><b>針對這種很困難、要計算/說明的東西，另外延伸出去一個小功能頁面，用超級白話的方式跟表格，引導他算出他的”家庭總收入按全家人口平均分配金額”，就有點像教人計算BMI的頁面，要對方填身高體重就會自動算出來</b></li></ul>
+</ul>
+
+<p></p><p></p><ul><li><b>同一法規可能針對不同年齡，以致於同一個tag屬性，可能會有一個以上的value</b><ul><li><b>Ex. 十年長照的資格是”（1）65歲以上老年人（2）55歲以上山地原住民（3）50歲以上之身心障礙者”</b></li>
+<li><b>這樣年齡的tag分別會有：&gt;=65、&gt;=55、&gt;=50，這樣是ok的嗎？</b></li></ul>
+</ul>
+<ul class="comment"><li>Blue:可以&nbsp; ！</li></ul>
+
+<ul><li><b>目前的Tag還沒有階層，續上面十年長照資格的例子：</b><ul><li><b>在目前的情形下，我們會Tag”年齡-&gt;=50...等”、”原住民-是”、”身心障礙-是”，但這樣的Tag方式會讓50歲的原住民也搜尋出這個法條，但其實他是不能用的</b></li></ul>
+</ul>
+<ul class="comment"><li>Blue：跟一開始的年齡解決方法一樣～</li></ul>
+
+<ul><li><b>這應該就是跟Tag的階層有關，但法規型式太多種了，我還沒細想怎麼設計才可能符合大多數法規的需求，這應該需要更多(很多)時間研究</b></li></ul>
+
+<p></p><ul><li><b>「且」與「或」(其實也跟階層有關)，我們有想 / 能夠處理這個問題嗎？</b><ul><li><b>ex. “A有身心障礙且為中低收入戶”&nbsp; vs&nbsp; “B有身心障礙 或 中低收入戶”&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 這兩個的條件其實不同，但我們的tag都會是”身心障礙─是” “中低收入-是”</b></li></ul>
+</ul>
+
+<p></p><ul><li><b>我的理解是，當搜尋者是身心障礙但非中低收入戶，他會在我們系統勾選 “身心障礙”、不勾選”低收入戶”，此時，A跟B的結果都不會出現？但實際上他是可以使用A的。</b></li></ul>
+<p><b>&nbsp;→ 我們有想解決 / 能解決這個問題嗎？</b></p><p></p><p></p><ul><li><b>技術性問題：厄，因為我對資料庫Tag不太熟XD 我想確認一下，每一筆資料是所有Tag都要下嗎？</b></li></ul>
+
+<ul><li><b>舉例來說，我有設定一個Tag是”身心障礙程度-輕度/中度/重度”</b></li>
+<li><b>當某法條只規定要是”身心障礙(不分程度)”時，我應該要下的Tag是：</b><ul><li><b>1. ”輕度、中度、重度”三個都選&nbsp;</b></li>
+<li><b>2. 這個Tag就可以跳過不下 (因為我另外有”身心障礙-是/否”的Tag)</b></li>
+<li><b>3. 還是我需要在”身心障礙程度”的Tag下，除了&quot;輕度/中度/重度&quot;外，另外加一個”不分程度別”的選項？</b></li></ul>
+</ul>
+
+<ul class="comment"><li>Blue:關於身障的部分，我認為可以在前端介面做下面方式</li>
+<li>一開始只有是否為身障？&nbsp; 假如使用者寫是，就會浮現出&quot;請選擇障礙類別&quot;</li>
+<li>到時候<b>他送出表單查詢時，會針對他選了哪個tag去做搜尋</b></li>
+<li>至於資料表單的tag規劃，我覺得現在peggy的方式就很好，因為通常選擇&quot;是&quot;身障就包含了不分程度的意思</li></ul>
+
+<p></p><ul><li><b>Welfare的範圍與定義</b><ul><li><b>就字面上來說是「社會福利」，內政部下的社福體系就是社會局推的各種措施</b></li>
+<li><b>但「社會保險(國民年金/勞保失能給付等)」、</b></li>
+<li><b>長照服務是否算在內？</b></li></ul>
+</ul>
+
+<p></p><ul><li><b>我個人覺得目前定的Welfare含意有點太廣了，會導致Tag很難下，建議先鎖定「一個族群」的福利(not一個政府體系ex.社會局福利)&nbsp;</b></li></ul>
+
+<p></p><ul><li><b>注意：REMIND：“每人每月未超過當年度最低生活費2.5倍（29,725元）”</b><ul><li><b>當年度最低生活費是會變動的喔！！每年要check調整</b></li></ul>
+</ul>
+
+<p></p><ul><li><b>家庭總收入按全家人口平均分配，每人每月未超過當年度<u>A最低生活費2.5倍（29,725元）</u>且未達<u>B台灣地區平均每人每月消費支出1.5倍（27,698元）</u>；</b><ul><li><b>就結果來說，其實就是要&lt;=27,698，但其實不一定每年都是B&lt;A</b></li>
+<li><b>但anyway，因為今年是B&lt;A，所以我條件value就只設定&lt;=27698這個選項</b></li></ul>
+</ul>
+
+<p></p><ul><li><b>查詢者的身分問題：不同法規的角色出發點不同 (應該也是從階層出發來解決此問題)</b><ul><li><b>Ex/ 本計畫扶助對象為未滿十八歲之兒童及少年，且未接受公費收容安置，其家庭有下列情形之一經社工員訪視評估，並符合第三點規定者： (一)父母一方或監護人失業、經判刑確定入獄、罹患重大傷病、精神疾病或藥酒癮戒治，致生活陷於困境。</b></li>
+<li><b>假設使用我們系統的人是17歲的小孩，他爸失業，此時”年齡”是要填17，”失業Tag”要寫”是”</b><ul><li><b>這樣會很錯亂，因為形容的對象非同一人</b></li>
+<li><b>另外要思考，”子女津貼”這一項，有可能是”父母”來查、也可能是”小孩”來查，如何敘述能讓user填對資料</b></li></ul>
+</ul>
+</ul>
+
+<p></p><p></p><p></p><p><b>(以下我自己還沒想清楚，可以先不要看XD)</b></p><p></p><p></p><ul><li><b>身分別問題(應該也是階層Q)：這是法令的tag，user輸入可能不同，ex.年齡，是要輸入自己的年齡or小孩的年齡</b><ul><li><b>我覺得這是user輸入的階層問題，可能layer 1先問：你是幫自己/小孩/長輩找福利</b></li>
+<li><b>layer 2導到不同的介面</b></li></ul>
+</ul>
+
+<p></p><ul><li><b>我們的tag欄位 = user輸入的篩選條件嗎？</b></li></ul>
+
+<p></p><ul><li><b>以操作來講，先做純的社會福利 (社會局會看到的)&nbsp;</b><ul><li><b>但這個的價值其實不高</b></li>
+<li><b>重點在於不同體系的資料庫連結</b></li></ul>
+</ul>
+
+<p></p><ul><li><b>我們的Tag = user的選單？</b></li></ul>
+
+<p></p><p></p><p></p><p><b>(待研究)</b></p><p></p><ul><li><b>失業給付</b></li></ul>
+
+<p></p><p></p><p></p><p></p><p></p></body>
+</html>
