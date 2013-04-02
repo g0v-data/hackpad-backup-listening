@@ -3,44 +3,46 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="en-us" />
-<meta name="version" content="21"/>
+<meta name="version" content="207"/>
 <style>body {font-family:Helvetica}ul.comment{list-style-image:url('https://hackpad.com/static/img/comment.png');} ul.task{list-style-image:url('https://hackpad.com/static/img/unchecked.png');}ul.taskdone{list-style-image:url('https://hackpad.com/static/img/checked.png');} </style><title>/669$ARSDwrw0OkJ</title>
 </head>
-<body><h1><b>【總架構】Listening 福利請聽</b></h1><p></p><p>網站： <a href="http://listening.g0v.tw/"><a href='http://listening.g0v.tw/'/>http://listening.g0v.tw/</a></a></p><p>Source Code: <a href="https://github.com/g0v/listening"><a href='https://github.com/g0v/listening'/>https://github.com/g0v/listening</a></a></p><p>高雄市政府資料： <a href="https://github.com/g0v/listening/tree/master/data/kcg"><a href='https://github.com/g0v/listening/tree/master/data/kcg'/>https://github.com/g0v/listening/tree/master/data/kcg</a></a></p><p>facebook: <a href="https://www.facebook.com/groups/370247296422827/"><a href='https://www.facebook.com/groups/370247296422827/'/>https://www.facebook.com/groups/370247296422827/</a></a></p><p></p><p>3/28 Peggy <a href='https://hackpad.com/BDRaUVBH8ZS'/>328</a></p><p></p><p></p><p><b>Front (scenario)</b></p><p></p><p>scenario 1- (條列所有法條)</p><ul><li>列出 db 內所有法規 ,基金會(wiki or data entry)<ul><li>疾病 依 ICD 國際疾病分類</li></ul>
+<body><h1>Listening 福利請聽</h1><p></p><p>網站： <a href="http://listening.g0v.tw/"><a href='http://listening.g0v.tw/'/>http://listening.g0v.tw/</a></a></p><p>Source Code: <a href="https://github.com/g0v/listening"><a href='https://github.com/g0v/listening'/>https://github.com/g0v/listening</a></a></p><p>高雄市政府資料： <a href="https://github.com/g0v/listening/tree/master/data/kcg"><a href='https://github.com/g0v/listening/tree/master/data/kcg'/>https://github.com/g0v/listening/tree/master/data/kcg</a></a></p><p>facebook: <a href="https://www.facebook.com/groups/370247296422827/"><a href='https://www.facebook.com/groups/370247296422827/'/>https://www.facebook.com/groups/370247296422827/</a></a></p><p></p><p></p><p><b>Front (scenario)</b></p><p></p><p>scenario 1- (條列所有法條)</p><ul><li>列出 db 內所有法規 ,基金會(wiki or data entry)<ul><li>疾病 依 ICD 國際疾病分類</li></ul>
 </li>
 <li>呈現方式 - 依 行政單位 (類似<a href="http://socbu.kcg.gov.tw/)"><a href='http://socbu.kcg.gov.tw/'/>http://socbu.kcg.gov.tw/</a>)</a><a href='http://socbu.kcg.gov.tw/)or'/> </a>or 福利類別</li></ul>
+
 <p>scenario 2- (依照個人條件搜尋)</p><ul><li>做 select 去選 tag ，再用 relation 去找出 rule</li>
 <li>第一層 依明確的分別 如地區</li>
 <li>第二層 常用tag 如身份 情境 確定的法條呈現 在第二層</li>
 <li>第三層 不確定者列為定第三曾</li></ul>
+
 <p>scenario 3- (直接提出求助)</p><ul><li>我需要幫忙</li>
 <li>由使用者提出需求</li>
 <li>成為案例出現在網站上，其他使用者也可以參考</li>
 <li>求助資料產生後，以 fb 管理員身分使用 fb api 發到粉絲團上</li></ul>
 
-<ul><li>列表UI呈現 <a href="http://wireframe.cc/5l7ehL"><a href='http://wireframe.cc/5l7ehL'/>http://wireframe.cc/5l7ehL</a></a></li></ul>
+<ul><li>列表UI呈現 <a href="http://wireframe.cc/5l7ehL"><a href='http://wireframe.cc/5l7ehL'/>http://wireframe.cc/5l7ehL</a></a></li>
+<li>編輯UI呈現(未完) <a href="http://wireframe.cc/wgqX2S"><a href='http://wireframe.cc/wgqX2S'/>http://wireframe.cc/wgqX2S</a></a></li></ul>
 
-<p><a href='https://hackpad.com/MSm0H7JfI5q#搜尋階層詳情'/>搜尋階層詳情</a></p><p></p><p>Future -&nbsp;</p><ul><li>統計數據</li>
+<p><a href='https://listening.hackpad.com/%E6%90%9C%E5%B0%8B%E9%9A%8E%E5%B1%A4%E8%A9%B3%E6%83%85-V0X7YXCdKnd'/>搜尋階層詳情</a></p><p></p><p>Future -&nbsp;</p><ul><li>統計數據</li>
 <li>使用者經驗</li>
 <li>網址以 hash 方式，紀錄目前搜尋結果 ex: <a href="https://gist.github.com/wildjcrt/5204334"><u><a href='https://gist.github.com/wildjcrt/5204334'/>https://gist.github.com/wildjcrt/5204334</a></u></a></li>
 <li>使用者可以登入，填寫完整資料，頁面可以直接秀出符合的法條</li></ul>
 
 <ul><li>單一法條呈現： <a href="http://wireframe.cc/4W0nb4"><a href='http://wireframe.cc/4W0nb4'/>http://wireframe.cc/4W0nb4</a></a></li>
-<li><a href='https://hackpad.com/l1YWQaNrrZy#法條範例'/>法條範例</a></li>
-<li><br/></li></ul>
+<li><a href='https://listening.hackpad.com/7eG7ldtu3f0#【法條】法條範例'/>法條範例</a></li></ul>
 
 <p><b>Backend</b></p><p></p><ul><li>提供更新 rule 和 tag 的介面 (wiki)</li></ul>
 
-<p></p><p><b>Database:&nbsp;</b></p><ul><li><a href='https://hackpad.com/zt3eW16sjam#db_schema'/>db_schema</a></li>
-<li><a href='https://hackpad.com/dvTeWx8Kp4k#法條的tag'/>法條的tag</a></li></ul>
+<p></p><p><b>Database:&nbsp;</b></p><ul><li><a href='https://listening.hackpad.com/db_schema-r0sClZonquP'/>db_schema</a></li>
+<li><a href='https://listening.hackpad.com/Untitled-fxaRWhj4vhN'/>法條的tag</a></li></ul>
 
 <p></p><p><b>Api</b></p><p></p><ul><li>api 更新 rule</li>
 <li>api 更新 rule 的 tag</li>
 <li>api 取得 rules</li>
 <li>api 取得 tags</li></ul>
-<p><a href='https://hackpad.com/TVQbfPIVII9#api-setting'/>api setting</a></p><p></p><p><b>討論區</b></p><ul><li><a href='https://hackpad.com/gQEmKARTA1E#g0v討論1'/>g0v討論1</a></li></ul>
+<p><a href='https://listening.hackpad.com/api-setting-daQNyCWvMEq'/>api setting</a></p><p></p><p></p><p><b>討論區</b></p><ul><li>&nbsp;<a href='https://listening.hackpad.com/g0v%E8%A8%8E%E8%AB%961-aB7XN9Qo6gM'/>g0v討論1</a></li></ul>
 
-<p><b>範例</b></p><p></p><ul><li><a href='https://hackpad.com/iNT2nvcYnL4#佩琪的信件範例'/>佩琪的信件範例</a></li></ul>
+<p><b>範例</b></p><p></p><ul><li><a href='https://listening.hackpad.com/%E4%BD%A9%E7%90%AA%E7%9A%84%E4%BF%A1%E4%BB%B6%E7%AF%84%E4%BE%8B-3TpfB9Ov1b4'/>佩琪的信件範例</a></li></ul>
 
 </body>
 </html>
